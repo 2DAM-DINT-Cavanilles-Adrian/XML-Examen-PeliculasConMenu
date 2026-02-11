@@ -86,7 +86,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } else {
             // Si no existe, sale un error y no se abre la ventana
             javax.swing.JOptionPane.showMessageDialog(this, 
-                "El archivo peliculas.xml no existe. Debe generarlo primero.", 
+                "El archivo .xml no existe. Tienes que generarlo primero.", 
                 "Error de Archivo", 
                 javax.swing.JOptionPane.ERROR_MESSAGE);
         }
