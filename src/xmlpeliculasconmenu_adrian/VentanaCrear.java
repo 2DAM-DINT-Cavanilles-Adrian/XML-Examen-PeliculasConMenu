@@ -2,6 +2,17 @@
 
 package xmlpeliculasconmenu_adrian;
 
+import java.io.File;    
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+
 public class VentanaCrear extends javax.swing.JFrame {
     
     // Aqui separo las listas para controlar que el limite sea de 3 por genero
@@ -12,6 +23,41 @@ public class VentanaCrear extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaCrear.class.getName());
 
+    // A continuacion voy a crear 2 metodos para ayudarme con la gestion del ejercicio
+    
+    // Método para añadir el nodo de género y las 3 películas hijas.
+    
+    private void appendGenero(Document doc, Element root, String nombreGenero, java.util.List<Pelicula> lista) {
+        Element nodoGenero = doc.createElement(nombreGenero);
+        root.appendChild(nodoGenero);
+        
+        for (Pelicula p : lista) {
+            Element nodoPelicula = doc.createElement("pelicula");
+            
+            // Título
+            
+            Element nodoTitulo = doc.createElement("titulo");
+            nodoTitulo.setTextContent(p.getTitulo());
+            nodoPelicula.appendChild(nodoTitulo);
+            
+            // Duración
+            
+            Element nodoDuracion = doc.createElement("duracion");
+            nodoDuracion.setTextContent(String.valueOf(p.getDuracion()));
+            nodoPelicula.appendChild(nodoDuracion);
+            
+            // Trailer
+            
+            Element nodoTrailer = doc.createElement("trailer");
+            nodoTrailer.setTextContent(p.getUrlTrailer());
+            nodoPelicula.appendChild(nodoTrailer);
+            
+            // Genero
+            
+            nodoGenero.appendChild(nodoPelicula);
+        }
+    }
+    
     // Creo este metodo para mostrar el estado en todo momento de las listas.
     
     private void actualizarResumen() {
@@ -29,6 +75,8 @@ public class VentanaCrear extends javax.swing.JFrame {
         
         txtResumen.setText(sb.toString());
     }
+    
+    
     
     public VentanaCrear() {
         initComponents();
@@ -75,6 +123,11 @@ public class VentanaCrear extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtResumen);
 
         btnGenerar.setText("Generar XML");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,6 +278,50 @@ public class VentanaCrear extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Lista completa. Ya puedes generar el archivo XML.");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        try {
+            
+            // 1. Configuración del DOM
+            
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+            // Elemento raíz
+            
+            Document doc = docBuilder.newDocument();
+            Element rootElement = doc.createElement("peliculas");
+            doc.appendChild(rootElement);
+
+            // 2. Metodo para procesar las categorias
+            
+            // Llamo a una funcion para no tener que repetir el codigo 3 veces
+            appendGenero(doc, rootElement, "misterio", listaMisterio); // [cite: 58]
+            appendGenero(doc, rootElement, "aventura", listaAventura); // [cite: 66]
+            appendGenero(doc, rootElement, "comedia", listaComedia);   // [cite: 69]
+
+            // 3. Aqi transformo y guardo el archivo
+            
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            // Esto es para que se vea bonito
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+            DOMSource source = new DOMSource(doc);
+            File archivo = new File("peliculas.xml");
+            javax.xml.transform.stream.StreamResult result = new javax.xml.transform.stream.StreamResult(archivo);
+
+            transformer.transform(source, result);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "XML generado correctamente en: " + archivo.getAbsolutePath());
+
+            //Si hay algun error devuelve un Dialog avisado del error.
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al generar XML: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
      * @param args the command line arguments
