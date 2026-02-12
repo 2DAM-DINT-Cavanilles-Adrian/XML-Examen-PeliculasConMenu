@@ -68,6 +68,9 @@ public class VentanaLeer extends javax.swing.JFrame {
     
     public VentanaLeer() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Gestor de Películas - " + this.getClass().getSimpleName());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("foto.png")).getImage());
         listaPeliculas.setModel(modeloLista);
         cargarDatosXML();
     }
@@ -76,6 +79,7 @@ public class VentanaLeer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPeliculas = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
@@ -86,14 +90,22 @@ public class VentanaLeer extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblDuracion = new javax.swing.JLabel();
         btnTrailer = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
+        jButton1.setText("Atras");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        listaPeliculas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listaPeliculas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        listaPeliculas.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
         listaPeliculas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listaPeliculasValueChanged(evt);
@@ -103,22 +115,41 @@ public class VentanaLeer extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Género");
+        jLabel1.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
+        jLabel1.setText("Género:");
 
+        lblGenero.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
         lblGenero.setText(".");
 
-        jLabel3.setText("Título");
+        jLabel3.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
+        jLabel3.setText("Título:");
 
+        lblTitulo.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
         lblTitulo.setText(".");
 
-        jLabel5.setText("Duración");
+        jLabel5.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
+        jLabel5.setText("Duración:");
 
+        lblDuracion.setFont(new java.awt.Font("Noto Serif", 1, 12)); // NOI18N
         lblDuracion.setText(".");
 
+        btnTrailer.setBackground(new java.awt.Color(204, 255, 204));
+        btnTrailer.setFont(new java.awt.Font("Noto Serif", 1, 10)); // NOI18N
         btnTrailer.setText("Ver Tráiler");
+        btnTrailer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 151, 102), 2));
         btnTrailer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTrailerActionPerformed(evt);
+            }
+        });
+
+        btnVolver.setBackground(new java.awt.Color(255, 204, 204));
+        btnVolver.setFont(new java.awt.Font("Noto Serif", 1, 10)); // NOI18N
+        btnVolver.setText("Atras");
+        btnVolver.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -128,23 +159,21 @@ public class VentanaLeer extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                    .addComponent(lblDuracion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTrailer)
+                .addGap(16, 44, Short.MAX_VALUE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,7 +192,9 @@ public class VentanaLeer extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(lblDuracion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTrailer)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -173,8 +204,8 @@ public class VentanaLeer extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -198,12 +229,10 @@ public class VentanaLeer extends javax.swing.JFrame {
             Object temporal = listaPeliculas.getSelectedValue();
             if (temporal instanceof Pelicula) {
                 Pelicula seleccionada = (Pelicula) temporal;
-            if (seleccionada != null) {
                 lblTitulo.setText(seleccionada.getTitulo());
-                lblGenero.setText(seleccionada.getGenero());
-                lblDuracion.setText(seleccionada.getDuracion() + " min");
+                lblGenero.setText(seleccionada.getGenero().toUpperCase());
+                lblDuracion.setText(seleccionada.getDuracion() + " minutos");
                 this.urlActual = seleccionada.getUrlTrailer();
-                }
             }
         }
     }//GEN-LAST:event_listaPeliculasValueChanged
@@ -223,6 +252,14 @@ public class VentanaLeer extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "No se pudo abrir el navegador: " + ex.getMessage());
         }
     }//GEN-LAST:event_btnTrailerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // No se por que se ha creado este boton, no lo puedo eliminar
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
 
     public static void main(String args[]) {
@@ -249,6 +286,8 @@ public class VentanaLeer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTrailer;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <peliculas>
-    <misterio/>
+    <misterio>
+        <pelicula>
+            <titulo>a</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+        <pelicula>
+            <titulo>a</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+        <pelicula>
+            <titulo>1</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+    </misterio>
     <aventura>
         <pelicula>
-            <titulo>Los Piratas del Caribe</titulo>
-            <duracion>240</duracion>
-            <trailer>https://www.youtube.com/watch?v=5Itr2jHuJaw</trailer>
+            <titulo>2</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+        <pelicula>
+            <titulo>1</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+        <pelicula>
+            <titulo>1</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
         </pelicula>
     </aventura>
-    <comedia/>
+    <comedia>
+        <pelicula>
+            <titulo>Los Minions!</titulo>
+            <duracion>127</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+        <pelicula>
+            <titulo>a</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+        <pelicula>
+            <titulo>a</titulo>
+            <duracion>1</duracion>
+            <trailer>https://youtu.be/-_Ajqzp5iIQ?si=PIhhi65XTaiDqKWM</trailer>
+        </pelicula>
+    </comedia>
 </peliculas>

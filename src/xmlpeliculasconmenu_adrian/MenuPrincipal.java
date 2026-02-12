@@ -8,25 +8,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        this.setTitle("Gestor de Películas - " + this.getClass().getSimpleName());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("foto.png")).getImage());
+        
+        // Para que aparezca en el medio
+        
+        this.setLocationRelativeTo(null);
+        
+        // He añadido teclas para mejorar el funcionamiento de la app
+        
+        jMenu1.setMnemonic('F');    // Alt + F abre "Funcionalidades"
+        menuCrear.setMnemonic('C'); // Una vez abierto el menú, 'C' abre Crear
+        menuLeer.setMnemonic('L');  // 'L' abre Leer
+        menuCrear.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCrear = new javax.swing.JMenuItem();
         menuLeer = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Serif", 1, 18)); // NOI18N
         jLabel1.setText("Gestor de Peliculas XML");
+
+        jLabel2.setFont(new java.awt.Font("Noto Serif", 0, 24)); // NOI18N
+        jLabel2.setText("Bienvenido al:");
+
+        jMenuBar1.setBackground(new java.awt.Color(204, 255, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jMenu1.setText("Funcionalidades");
 
+        menuCrear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         menuCrear.setText("Crear XML de Peliculas");
         menuCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -35,6 +59,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(menuCrear);
 
+        menuLeer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         menuLeer.setText("Leer XML y Mostrar Tráiler");
         menuLeer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,17 +76,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(95, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(69, 69, 69))
+                .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(115, 115, 115))
         );
 
         pack();
@@ -119,6 +150,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuCrear;
