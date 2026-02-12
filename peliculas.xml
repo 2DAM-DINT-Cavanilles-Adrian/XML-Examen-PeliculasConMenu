@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<peliculas>
+    <misterio/>
+    <aventura>
+        <pelicula>
+            <titulo>Los Piratas del Caribe</titulo>
+            <duracion>240</duracion>
+            <trailer>https://www.youtube.com/watch?v=5Itr2jHuJaw</trailer>
+        </pelicula>
+    </aventura>
+    <comedia/>
+</peliculas>
